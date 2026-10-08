@@ -1,8 +1,8 @@
-import { useRouter } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Category() {
   const route = useRouter();
-
+  const searchParams = useSearchParams();
   const category = [
     { label: "All", value: "" },
     { label: "Action", value: "Action" },
@@ -20,16 +20,21 @@ export default function Category() {
     { label: "Thriller", value: "Thriller" },
     { label: "Western", value: "Western" },
   ];
+  const nameCategory = searchParams.get("category");
 
   return (
-    <div className=" m-auto my-5 w-[80%]">
+    <div className="flex justify-center my-5">
       {category.map((item) => (
         <button
           key={item.value}
           onClick={() => {
             route.push(`/?category=${item.value}`);
           }}
-          className="p-3 border-2 rounded-2xl "
+          className={`p-3 border-2 rounded-2xl hover:bg-white transition-all duration-300 ${
+            nameCategory === item.value
+              ? "bg-blue-500 text-white"
+              : "bg-gray-200 text-black"
+          }`}
         >
           {item.label}
         </button>

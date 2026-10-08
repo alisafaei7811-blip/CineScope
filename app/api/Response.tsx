@@ -5,15 +5,22 @@ const request = axios.create({
   baseURL: "https://api.tvmaze.com",
 });
 
-export default async function Response({ category }) {
+export default async function Response(
+  { category }: { category: string | null },
+  search: string,
+) {
   const response = await request.get<Show[]>("/shows");
-  if (category) {
-    return response.data.filter((item) =>
-      item.genres.includes(category)
+
+  let result = response.data;
+
+  if (category && category !== "all") {
+    result = result.filter((item) => item.genres.includes(category));
+  }
+  if (search) {
+    result = result.filter((item) =>
+      item.name.toLowerCase().includes(search.toLowerCase()),
     );
   }
-  
-  return response.data;
 
-  return response.data;
+  return result;
 }
