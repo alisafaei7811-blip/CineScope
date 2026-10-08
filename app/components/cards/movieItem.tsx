@@ -3,8 +3,8 @@ import Link from "next/link";
 
 export default function MovieItem({ item }: MovieItemProps) {
   return (
-    <div className="w-64 overflow-hidden rounded-xl bg-zinc-900 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl">
-      <div className="space-y-2 p-4">
+    <div className="w-64 overflow-hidden rounded-xl bg-zinc-900 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl ">
+      <div className="space-y-2 p-4 transition-all duration-300 ">
         <Link href={`/aboute/${item.id}`}>
           <p className="text-lg font-bold text-white">{item.name}</p>
 

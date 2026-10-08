@@ -8,6 +8,7 @@ const request = axios.create({
 export default async function Response(
   { category }: { category: string | null },
   search: string,
+  sort: string,
 ) {
   const response = await request.get<Show[]>("/shows");
 
@@ -20,6 +21,20 @@ export default async function Response(
     result = result.filter((item) =>
       item.name.toLowerCase().includes(search.toLowerCase()),
     );
+  }
+
+  
+  if (sort === "rating-high") {
+    result.sort((a, b) => b.rating.average - a.rating.average);
+  }
+  if (sort === "rating-low") {
+    result.sort((a, b) => a.rating.average - b.rating.average);
+  }
+  if (sort === "name-a-z") {
+    result.sort((a, b) => a.name.localeCompare(b.name));
+  }
+  if (sort === "name-z-a") {
+    result.sort((a, b) => b.name.localeCompare(a.name));
   }
 
   return result;

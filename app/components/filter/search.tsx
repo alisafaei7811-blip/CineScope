@@ -1,41 +1,40 @@
 "use client";
 
-import useMovie from "@/app/hook/useMovie";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Search() {
   const route = useRouter();
   const searchParams = useSearchParams();
 
-  const category = searchParams.get("category");
+  const [search, setSearch] = useState(
+    searchParams.get("search") || ""
+  );
 
-  const [search, setSearch] = useState("");
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const params = new URLSearchParams(searchParams.toString());
 
-  const { data } = useMovie(category, search);
+      if (search) {
+        params.set("search", search);
+      } else {
+        params.delete("search");
+      }
+
+      route.replace(`/?${params.toString()}`);
+    }, 500);
+
+    return () => clearTimeout(timer);
+  }, [search]);
 
   return (
-    <div>
+    <div className="flex justify-center my-5">
       <input
         type="text"
         placeholder="Search movies..."
         value={search}
-        onChange={(e) => {
-          const value = e.target.value;
-
-          setSearch(value);
-
-          const params = new URLSearchParams(searchParams.toString());
-
-          if (value) {
-            params.set("search", value);
-          } else {
-            params.delete("search");
-          }
-
-          route.push(`/?${params.toString()}`);
-        }}
-        className="my-5 border-2 rounded-2xl p-5 block m-auto w-120 text-2xl"
+        onChange={(e) => setSearch(e.target.value)}
+        className=" border-2 py-3 px-8 rounded-2xl "
       />
     </div>
   );
