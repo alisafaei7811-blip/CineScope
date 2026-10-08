@@ -35,6 +35,7 @@ export default function Search() {
 
           route.push(`/?${params.toString()}`);
         }}
+        className="my-5 border-2 rounded-2xl p-5 block m-auto w-120 text-2xl"
       />
     </div>
   );

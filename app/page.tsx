@@ -17,10 +17,10 @@ export default function Home() {
   if (error) return <p>{error.message}</p>;
 
   return (
-    <div>
+    <div className="w-[90%] m-auto">
       <Search></Search>
       <Category></Category>
-      <div className="w-[60%] m-auto grid grid-cols-6 gap-6 justify-around items-center">
+      <div className=" m-auto grid grid-cols-6 gap-6 justify-around items-center">
         {data?.map((item) => (
           <MovieItem item={item} key={item.id}></MovieItem>
         ))}
