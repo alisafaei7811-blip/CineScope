@@ -30,7 +30,7 @@ export default function Category() {
           onClick={() => {
             route.push(`/?category=${item.value}`);
           }}
-          className={`p-3 border-2 rounded-2xl hover:bg-white transition-all duration-300 ${
+          className={`p-3 border-2 rounded-2xl transition-all duration-300 ${
             nameCategory === item.value
               ? "bg-blue-500 text-white"
               : "bg-gray-200 text-black"
