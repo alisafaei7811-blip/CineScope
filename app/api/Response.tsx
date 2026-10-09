@@ -23,12 +23,11 @@ export default async function Response(
     );
   }
 
-  
   if (sort === "rating-high") {
-    result.sort((a, b) => b.rating.average - a.rating.average);
+    result.sort((a, b) => (b.rating.average ?? 0) - (a.rating.average ?? 0));
   }
   if (sort === "rating-low") {
-    result.sort((a, b) => a.rating.average - b.rating.average);
+    result.sort((a, b) => (a.rating.average ?? 0) - (b.rating.average ?? 0));
   }
   if (sort === "name-a-z") {
     result.sort((a, b) => a.name.localeCompare(b.name));

@@ -9,7 +9,7 @@ export default function Search() {
 
   const [input, setInput] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const params = new URLSearchParams(searchParams.toString());
@@ -27,7 +27,9 @@ export default function Search() {
           onChange={(e) => setInput(e.target.value)}
           className=" border-2 py-3 px-8 rounded-2xl "
         />
-        <button type="submit" className="m-5 p-3 border-2 rounded-2xl">Search</button>
+        <button type="submit" className="m-5 p-3 border-2 rounded-2xl">
+          Search
+        </button>
       </form>
     </div>
   );

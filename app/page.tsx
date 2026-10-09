@@ -12,8 +12,8 @@ import SortBy from "./components/filter/sortBy";
 function HomeContent() {
   const searchParams = useSearchParams();
 
-  const category = searchParams.get("category");
-  const search = searchParams.get("search");
+  const category = searchParams.get("category") ?? "";
+  const search = searchParams.get("search") ?? "";
 
   const [sort, setSort] = useState("default");
 
@@ -28,12 +28,12 @@ function HomeContent() {
   }
 
   return (
-    <div className="w-[90%] m-auto">
+    <div className="w-[90%] m-auto ">
       <Search />
       <Category />
       <SortBy sort={sort} setSort={setSort} />
 
-      <div className="m-auto grid grid-cols-6 gap-6">
+      <div className="m-auto flex justify-around items-center gap-6 flex-wrap">
         {data?.map((item) => (
           <MovieItem item={item} key={item.id} />
         ))}

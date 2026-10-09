@@ -16,28 +16,28 @@ export default function Category() {
     { label: "Horror", value: "Horror" },
     { label: "Mystery", value: "Mystery" },
     { label: "Romance", value: "Romance" },
-    { label: "Science-Fiction", value: "Science-Fiction" },
     { label: "Thriller", value: "Thriller" },
     { label: "Western", value: "Western" },
   ];
   const nameCategory = searchParams.get("category");
 
   return (
-    <div className="flex justify-center my-5">
+    <div className="flex  my-5  justify-around items-center flex-wrap ">
       {category.map((item) => (
-        <button
-          key={item.value}
-          onClick={() => {
-            route.push(`/?category=${item.value}`);
-          }}
-          className={`p-3 border-2 rounded-2xl transition-all duration-300 ${
-            nameCategory === item.value
-              ? "bg-blue-500 text-white"
-              : "bg-gray-200 text-black"
-          }`}
-        >
-          {item.label}
-        </button>
+        <div key={item.value} className="">
+          <button
+            onClick={() => {
+              route.push(`/?category=${item.value}`);
+            }}
+            className={`p-3 w-[100px] border-2 rounded-2xl transition-all duration-300 ${
+              nameCategory === item.value
+                ? "bg-blue-500 text-white"
+                : "bg-gray-200 text-black"
+            }`}
+          >
+            {item.label}
+          </button>
+        </div>
       ))}
     </div>
   );
