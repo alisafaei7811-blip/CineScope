@@ -1,41 +1,34 @@
 "use client";
 
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export default function Search() {
   const route = useRouter();
   const searchParams = useSearchParams();
 
-  const [search, setSearch] = useState(
-    searchParams.get("search") || ""
-  );
+  const [input, setInput] = useState("");
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      const params = new URLSearchParams(searchParams.toString());
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-      if (search) {
-        params.set("search", search);
-      } else {
-        params.delete("search");
-      }
+    const params = new URLSearchParams(searchParams.toString());
+    params.set("search", input);
 
-      route.replace(`/?${params.toString()}`);
-    }, 500);
-
-    return () => clearTimeout(timer);
-  }, [search]);
-
+    route.push(`/?${params.toString()}`);
+  };
   return (
     <div className="flex justify-center my-5">
-      <input
-        type="text"
-        placeholder="Search movies..."
-        value={search}
-        onChange={(e) => setSearch(e.target.value)}
-        className=" border-2 py-3 px-8 rounded-2xl "
-      />
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          placeholder="Search movies..."
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          className=" border-2 py-3 px-8 rounded-2xl "
+        />
+        <button type="submit" className="m-5 p-3 border-2 rounded-2xl">Search</button>
+      </form>
     </div>
   );
 }
