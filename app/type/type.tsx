@@ -24,3 +24,20 @@ export type Show = {
 export type MovieItemProps = {
   item: Show;
 };
+
+export type Movie = {
+  id: number;
+  name: string;
+  image: {
+    medium: string;
+    original: string;
+  } | null;
+  genres: string[];
+  rating: {
+    average: number | null;
+  };
+  summary: string | null;
+  language: string | null;
+  status: string;
+  premiered: string | null;
+};
