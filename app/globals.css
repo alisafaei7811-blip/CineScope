@@ -18,6 +18,18 @@
     --foreground: #ededed;
   }
 }
+@keyframes cinematic-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.15);
+  }
+}
+
+@theme {
+  --animate-cinematic-zoom: cinematic-zoom 5s ease-out both;
+}
 
 body {
   background: var(--background);
