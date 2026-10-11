@@ -2,6 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
+import { FaSearch } from "react-icons/fa";
 
 export default function Search() {
   const route = useRouter();
@@ -28,7 +29,7 @@ export default function Search() {
           className=" border-2 py-3 px-8 rounded-2xl "
         />
         <button type="submit" className="m-5 p-3 border-2 rounded-2xl">
-          Search
+          <FaSearch></FaSearch>
         </button>
       </form>
     </div>
