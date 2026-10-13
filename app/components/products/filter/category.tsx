@@ -27,7 +27,7 @@ export default function Category() {
         <div key={item.value} className="">
           <button
             onClick={() => {
-              route.push(`/products?category=${item.value}`);
+              route.push(`/movies?category=${item.value}`);
             }}
             className={`p-3 w-[100px] border-2 rounded-2xl transition-all duration-300 ${
               nameCategory === item.value

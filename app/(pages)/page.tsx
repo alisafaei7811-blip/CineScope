@@ -1,10 +1,11 @@
 import Hero from "../components/home/hero";
+import TrendingShows from "../components/home/trendingShows";
 
 export default function Home() {
   return (
     <main>
       <Hero />
-      {/* بقیه محتوای صفحه */}
+      <TrendingShows></TrendingShows>
     </main>
   );
 }
