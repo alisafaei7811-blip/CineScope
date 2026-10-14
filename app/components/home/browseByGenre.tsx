@@ -11,7 +11,7 @@ export default function BrowseByGenre() {
   ];
 
   return (
-    <div className="px-6 py-16">
+    <div className="px-6 py-16 w-[90%] m-auto">
       <h2 className="text-3xl font-bold text-white">Browse by Genre</h2>
 
       <div className="mt-8 grid grid-cols-2 gap-5 md:grid-cols-3">
