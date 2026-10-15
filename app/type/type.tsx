@@ -41,3 +41,12 @@ export type Movie = {
   status: string;
   premiered: string | null;
 };
+
+export type ContextType = {
+  favorites: number[];
+  addFavorite: (id: number) => void;
+};
+
+export type Action =
+  | { type: "add"; id: number }
+  | { type: "remove"; id: number };

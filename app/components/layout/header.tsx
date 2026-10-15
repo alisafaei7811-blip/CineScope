@@ -14,17 +14,14 @@ export default function Header() {
   return (
     <div>
       <header className="flex items-center justify-around  px-4 py-5">
-        {/* لوگو: هم موبایل هم دسکتاپ */}
         <Link href="/" className="text-2xl font-bold">
           CineScope
         </Link>
 
-        {/* سرچ: فقط دسکتاپ */}
         <section className="hidden md:block">
           <Search />
         </section>
 
-        {/* نوبار: فقط دسکتاپ */}
         <nav className="hidden md:flex items-center gap-5 text-xl">
           <Link href="/" aria-label="Home" title="Home">
             <FaHome />
@@ -40,13 +37,14 @@ export default function Header() {
           </Link>
         </nav>
 
-        {/* دکمه منو: فقط موبایل */}
         <button className="md:hidden" onClick={() => setNav(!nav)}>
           <IoMenu size={30} />
         </button>
       </header>
+      <div className="md:hidden border-t-2">
+        <Search></Search>
+      </div>
 
-      {/* منوی موبایل */}
       {nav && (
         <nav className="fixed inset-0 z-50 h-dvh w-screen bg-black/75">
           <button
