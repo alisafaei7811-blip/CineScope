@@ -4,7 +4,7 @@ import Link from "next/link";
 export default function MovieItem({ item }: MovieItemProps) {
   return (
     <div className="flex h-full min-h-[160px] flex-col justify-between overflow-hidden rounded-xl bg-zinc-900 p-3 shadow-lg transition hover:-translate-y-1 hover:shadow-2xl sm:p-4">
-      <Link href={`/aboute/${item.id}`} className="space-y-1 sm:space-y-2">
+      <Link href={`/movies/aboute/${item.id}`} className="space-y-1 sm:space-y-2">
         <p className="text-base font-bold text-white sm:text-lg">
           {item.name.length >= 15 ? item.name.slice(0, 15) + "..." : item.name}
         </p>
