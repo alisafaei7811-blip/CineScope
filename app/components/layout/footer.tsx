@@ -27,6 +27,10 @@ export default function Footer() {
             <Link href="/movies" className="transition hover:text-white">
               Shows
             </Link>
+            <Link href="/favorites" className="transition hover:text-white">
+              favorites
+            </Link>
+
 
             <Link href="/profile" className="transition hover:text-white">
               Login
