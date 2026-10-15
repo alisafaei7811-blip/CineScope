@@ -1,3 +1,5 @@
+"use client";
+
 import { useRouter, useSearchParams } from "next/navigation";
 
 export default function Category() {
@@ -19,25 +21,24 @@ export default function Category() {
     { label: "Thriller", value: "Thriller" },
     { label: "Western", value: "Western" },
   ];
-  const nameCategory = searchParams.get("category");
+  const nameCategory = searchParams.get("category") ?? "";
 
   return (
-    <div className="flex  my-5  justify-around items-center flex-wrap ">
+    <div className="my-5 flex gap-2 overflow-x-auto pb-2 md:flex-wrap md:justify-center md:overflow-visible">
       {category.map((item) => (
-        <div key={item.value} className="">
-          <button
-            onClick={() => {
-              route.push(`/movies?category=${item.value}`);
-            }}
-            className={`p-3 w-[100px] border-2 rounded-2xl transition-all duration-300 ${
-              nameCategory === item.value
-                ? "bg-blue-500 text-white"
-                : "bg-gray-200 text-black"
-            }`}
-          >
-            {item.label}
-          </button>
-        </div>
+        <button
+          key={item.value}
+          onClick={() => {
+            route.push(`/movies?category=${item.value}`);
+          }}
+          className={`shrink-0 rounded-2xl border-2 px-4 py-2 text-sm transition-all duration-300 md:px-5 md:py-3 md:text-base ${
+            nameCategory === item.value
+              ? "bg-blue-500 text-white"
+              : "bg-gray-200 text-black"
+          }`}
+        >
+          {item.label}
+        </button>
       ))}
     </div>
   );

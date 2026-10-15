@@ -4,13 +4,12 @@ type SortByProps = {
 };
 
 export default function SortBy({ sort, setSort }: SortByProps) {
-    
   return (
-    <div>
+    <div className="my-6 md:my-10">
       <select
         value={sort}
         onChange={(e) => setSort(e.target.value)}
-        className="rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-2 my-10 text-sm text-white outline-none transition focus:border-zinc-500"
+        className="w-full rounded-lg border border-zinc-700 bg-zinc-900 px-4 py-2 text-sm text-white outline-none transition focus:border-zinc-500 sm:w-auto"
       >
         <option value="default">Sort: Default</option>
         <option value="rating-high">Rating: High → Low</option>

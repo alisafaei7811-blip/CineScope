@@ -7,8 +7,6 @@ import Category from "@/app/components/products/filter/category";
 import SortBy from "@/app/components/products/filter/sortBy";
 import MovieItem from "@/app/components/products/cards/movieItem";
 
-
-
 function Products() {
   const searchParams = useSearchParams();
 
@@ -28,16 +26,16 @@ function Products() {
   }
 
   return (
-    <div className="w-[90%] m-auto ">
+    <div className="px-4">
       <Category />
       <SortBy sort={sort} setSort={setSort} />
-      <div className="m-auto flex justify-around items-center gap-6 flex-wrap">
+      <main className="mt-6 grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-4">
         {data?.length === 0 ? (
-          <p>Your video was not found</p>
+          <p className="col-span-full text-center">Your video was not found</p>
         ) : (
           data?.map((item) => <MovieItem item={item} key={item.id} />)
         )}
-      </div>
+      </main>
     </div>
   );
 }
