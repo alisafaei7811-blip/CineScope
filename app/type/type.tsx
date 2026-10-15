@@ -1,5 +1,4 @@
-import { ReactNode } from "react";
-
+import { ReactNode, Dispatch } from "react";
 export type children = {
   children: ReactNode;
 };
@@ -7,10 +6,6 @@ export type children = {
 export type Show = {
   id: number;
   name: string;
-  image: {
-    medium: string;
-    original: string;
-  } | null;
   genres: string[];
   rating: {
     average: number | null;
@@ -28,10 +23,6 @@ export type MovieItemProps = {
 export type Movie = {
   id: number;
   name: string;
-  image: {
-    medium: string;
-    original: string;
-  } | null;
   genres: string[];
   rating: {
     average: number | null;
@@ -43,10 +34,11 @@ export type Movie = {
 };
 
 export type ContextType = {
-  favorites: number[];
-  addFavorite: (id: number) => void;
+  state: Movie[];
+  dispatch: Dispatch<Action>;
 };
 
 export type Action =
-  | { type: "add"; id: number }
-  | { type: "remove"; id: number };
+  | { type: "add"; payload: Movie }
+  | { type: "remove"; payload: number }
+  | { type: "load"; payload: Movie[] };
