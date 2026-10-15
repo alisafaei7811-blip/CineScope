@@ -16,7 +16,7 @@ export default function Search() {
     const params = new URLSearchParams(searchParams.toString());
     params.set("search", input);
 
-    route.push(`/?${params.toString()}`);
+    route.push(`/movies/?${params.toString()}`);
   };
   return (
     <div className="flex justify-center my-5">
