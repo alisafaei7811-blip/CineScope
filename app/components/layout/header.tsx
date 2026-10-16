@@ -32,7 +32,7 @@ export default function Header() {
           <Link href="/favorites" aria-label="Favorites" title="Favorites">
             <FaHeart />
           </Link>
-          <Link href="/profile" aria-label="Profile" title="Profile">
+          <Link href="/SignIn" aria-label="Profile" title="Profile">
             <FaUserCircle />
           </Link>
         </nav>
@@ -60,7 +60,7 @@ export default function Header() {
             <Link href="/">Home</Link>
             <Link href="/movies">Shows</Link>
             <Link href="/favorites">Favorites</Link>
-            <Link href="/login">Login</Link>
+            <Link href="/SignIn">Sign in</Link>
           </div>
         </nav>
       )}
