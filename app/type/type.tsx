@@ -42,3 +42,5 @@ export type Action =
   | { type: "add"; payload: Movie }
   | { type: "remove"; payload: number }
   | { type: "load"; payload: Movie[] };
+
+  

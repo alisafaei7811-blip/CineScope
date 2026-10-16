@@ -31,9 +31,8 @@ export default function Footer() {
               favorites
             </Link>
 
-
-            <Link href="/profile" className="transition hover:text-white">
-              Login
+            <Link href="/SignIn" className="transition hover:text-white">
+              Sign in
             </Link>
           </nav>
 
